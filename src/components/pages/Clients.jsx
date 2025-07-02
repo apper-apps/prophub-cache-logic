@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { toast } from 'react-toastify'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-import Empty from '@/components/ui/Empty'
-import Button from '@/components/atoms/Button'
-import Badge from '@/components/atoms/Badge'
-import SearchBar from '@/components/molecules/SearchBar'
-import ApperIcon from '@/components/ApperIcon'
-import { clientService } from '@/services/api/clientService'
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import SearchBar from "@/components/molecules/SearchBar";
+import Error from "@/components/ui/Error";
+import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import { clientService } from "@/services/api/clientService";
 
 const Clients = () => {
+  const { t } = useTranslation()
   const [clients, setClients] = useState([])
   const [filteredClients, setFilteredClients] = useState([])
   const [loading, setLoading] = useState(true)
@@ -83,37 +85,37 @@ const Clients = () => {
     <div className="p-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-        <div>
+<div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Clients
+            {t('clients.title')}
           </h1>
           <p className="text-gray-600">
-            Manage your client relationships and interactions
+            {t('clients.subtitle')}
           </p>
         </div>
         <div className="mt-4 md:mt-0">
           <Button
             variant="primary"
             className="inline-flex items-center"
-          >
+>
             <ApperIcon name="UserPlus" size={16} className="mr-2" />
-            Add Client
+            {t('clients.addClient')}
           </Button>
         </div>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white rounded-lg p-6 shadow-card mb-6">
+<div className="bg-white rounded-lg p-6 shadow-card mb-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
           <div className="flex-1 max-w-md">
             <SearchBar 
               onSearch={handleSearch}
-              placeholder="Search clients by name, email, or phone..."
+              placeholder={t('clients.searchPlaceholder')}
             />
           </div>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">
-              {filteredClients.length} of {clients.length} clients
+              {filteredClients.length} {t('clients.of')} {clients.length} {t('clients.clientsText')}
             </span>
           </div>
         </div>
@@ -121,10 +123,10 @@ const Clients = () => {
 
       {/* Clients Table */}
       {filteredClients.length === 0 ? (
-        <Empty
-          title="No clients found"
-          description="Start building your client base by adding your first client"
-          actionText="Add Client"
+<Empty
+          title={t('clients.empty.title')}
+          description={t('clients.empty.description')}
+          actionText={t('clients.addClient')}
           onAction={() => {}}
           icon="Users"
         />
@@ -134,23 +136,23 @@ const Clients = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Client
+<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    {t('clients.table.client')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Contact
+                    {t('clients.table.contact')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
+                    {t('clients.table.status')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Interested Properties
+                    {t('clients.table.interestedProperties')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Added
+                    {t('clients.table.added')}
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
+                    {t('clients.table.actions')}
                   </th>
                 </tr>
               </thead>
@@ -186,8 +188,8 @@ const Clients = () => {
                         {client.status}
                       </Badge>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {client.interestedProperties?.length || 0} properties
+<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {client.interestedProperties?.length || 0} {t('clients.properties')}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {new Date(client.createdAt).toLocaleDateString()}

@@ -1,0 +1,180 @@
+{
+  "header": {
+    "addProperty": "Add Property"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "properties": "Properties",
+    "addProperty": "Add Property",
+    "clients": "Clients",
+    "search": "Search"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welcome back! Here's what's happening with your properties.",
+    "quickActions": "Quick Actions",
+    "recentProperties": "Recent Properties",
+    "recentActivity": "Recent Activity",
+    "stats": {
+      "totalListings": "Total Listings",
+      "activeListings": "Active Listings",
+      "totalClients": "Total Clients",
+      "monthlyRevenue": "Monthly Revenue"
+    },
+    "actions": {
+      "addProperty": "Add Property",
+      "addClient": "Add Client",
+      "propertySearch": "Property Search",
+      "viewReports": "View Reports"
+    },
+    "activity": {
+      "newPropertyListed": "New property listed",
+      "newPropertyDescription": "Modern Downtown Apartment added to listings",
+      "newClientInquiry": "New client inquiry", 
+      "newClientDescription": "Sarah Johnson interested in luxury condos",
+      "propertySold": "Property sold",
+      "propertySoldDescription": "Suburban Family Home successfully closed",
+      "showingScheduled": "Showing scheduled",
+      "showingDescription": "Property viewing set for tomorrow at 2 PM"
+    },
+    "empty": {
+      "noProperties": "No properties yet",
+      "noPropertiesDescription": "Start building your portfolio by adding your first property listing"
+    }
+  },
+  "properties": {
+    "title": "Properties",
+    "subtitle": "Manage and view all your property listings",
+    "showing": "Showing",
+    "of": "of",
+    "propertiesText": "properties",
+    "empty": {
+      "title": "No properties found",
+      "description": "Try adjusting your filters or add a new property to get started"
+    }
+  },
+  "addProperty": {
+    "title": "Add New Property",
+    "subtitle": "Create a new property listing for your portfolio",
+    "backToProperties": "Back to Properties",
+    "basicInformation": "Basic Information",
+    "propertyDetails": "Property Details",
+    "description": "Description",
+    "listingStatus": "Listing Status",
+    "cancel": "Cancel",
+    "addingProperty": "Adding Property...",
+    "labels": {
+      "propertyTitle": "Property Title",
+      "propertyType": "Property Type",
+      "price": "Price ($)",
+      "location": "Location",
+      "area": "Area (sqft)",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "status": "Status"
+    },
+    "placeholders": {
+      "title": "e.g., Modern Downtown Apartment",
+      "selectType": "Select property type",
+      "price": "450000",
+      "location": "City, State",
+      "area": "2500",
+      "bedrooms": "3",
+      "bathrooms": "2.5",
+      "description": "Describe the property features, amenities, and unique selling points..."
+    },
+    "types": {
+      "house": "House",
+      "apartment": "Apartment",
+      "condo": "Condo",
+      "townhouse": "Townhouse", 
+      "commercial": "Commercial"
+    },
+    "statuses": {
+      "available": "Available",
+      "pending": "Pending",
+      "sold": "Sold"
+    }
+  },
+  "search": {
+    "title": "Advanced Property Search",
+    "subtitle": "Find the perfect property using our comprehensive search tools",
+    "searchResults": "Search Results",
+    "sortBy": "Sort By",
+    "search": "Search",
+    "empty": {
+      "title": "No properties match your search",
+      "description": "Try adjusting your search criteria or filters to find more results",
+      "resetSearch": "Reset Search"
+    },
+    "sorting": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "priceLowHigh": "Price: Low to High",
+      "priceHighLow": "Price: High to Low", 
+      "areaLargeSmall": "Area: Large to Small",
+      "areaSmallLarge": "Area: Small to Large"
+    },
+    "placeholders": {
+      "searchProperties": "Search Properties",
+      "searchDescription": "Search by title, location, or description..."
+    }
+  },
+  "clients": {
+    "title": "Clients",
+    "subtitle": "Manage your client relationships and interactions",
+    "addClient": "Add Client",
+    "searchPlaceholder": "Search clients by name, email, or phone...",
+    "of": "of",
+    "clientsText": "clients",
+    "table": {
+      "client": "Client",
+      "contact": "Contact", 
+      "status": "Status",
+      "interestedProperties": "Interested Properties",
+      "added": "Added",
+      "actions": "Actions"
+    },
+    "properties": "properties",
+    "empty": {
+      "title": "No clients found",
+      "description": "Start building your client base by adding your first client"
+    }
+  },
+  "propertyDetail": {
+    "backToProperties": "Back to Properties",
+    "edit": "Edit",
+    "share": "Share", 
+    "description": "Description",
+    "propertyFeatures": "Property Features",
+    "contactClient": "Contact Client",
+    "scheduleShowing": "Schedule Showing",
+    "updateStatus": "Update Status",
+    "features": {
+      "listed": "Listed",
+      "marketReady": "Market Ready",
+      "verifiedListing": "Verified Listing"
+    },
+    "units": {
+      "sqft": "sqft",
+      "bedrooms": "bedrooms",
+      "bathrooms": "bathrooms"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "close": "Close",
+    "viewAll": "View All"
+  }
+}

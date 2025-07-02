@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import PropertyCard from '@/components/molecules/PropertyCard'
 import FilterPanel from '@/components/molecules/FilterPanel'
 import Loading from '@/components/ui/Loading'
@@ -11,6 +12,7 @@ import ApperIcon from '@/components/ApperIcon'
 import { propertyService } from '@/services/api/propertyService'
 
 const Search = () => {
+  const { t } = useTranslation()
   const [properties, setProperties] = useState([])
   const [filteredProperties, setFilteredProperties] = useState([])
   const [loading, setLoading] = useState(true)
@@ -150,12 +152,12 @@ const Search = () => {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="mb-6">
+<div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Advanced Property Search
+          {t('search.title')}
         </h1>
         <p className="text-gray-600">
-          Find the perfect property using our comprehensive search tools
+          {t('search.subtitle')}
         </p>
       </div>
 
@@ -163,28 +165,28 @@ const Search = () => {
       <div className="bg-white rounded-lg p-6 shadow-card mb-6">
         <div className="flex flex-col md:flex-row md:items-end space-y-4 md:space-y-0 md:space-x-4">
           <div className="flex-1">
-            <Input
-              label="Search Properties"
+<Input
+              label={t('search.placeholders.searchProperties')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by title, location, or description..."
+              placeholder={t('search.placeholders.searchDescription')}
             />
           </div>
           <div className="md:w-48">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Sort By
+<label className="block text-sm font-medium text-gray-700 mb-2">
+              {t('search.sortBy')}
             </label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            >
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="area-large">Area: Large to Small</option>
-              <option value="area-small">Area: Small to Large</option>
+>
+              <option value="newest">{t('search.sorting.newest')}</option>
+              <option value="oldest">{t('search.sorting.oldest')}</option>
+              <option value="price-low">{t('search.sorting.priceLowHigh')}</option>
+              <option value="price-high">{t('search.sorting.priceHighLow')}</option>
+              <option value="area-large">{t('search.sorting.areaLargeSmall')}</option>
+              <option value="area-small">{t('search.sorting.areaSmallLarge')}</option>
             </select>
           </div>
           <Button
@@ -192,8 +194,8 @@ const Search = () => {
             onClick={handleSearch}
             className="md:w-auto w-full"
           >
-            <ApperIcon name="Search" size={16} className="mr-2" />
-            Search
+<ApperIcon name="Search" size={16} className="mr-2" />
+            {t('search.search')}
           </Button>
         </div>
       </div>
@@ -203,12 +205,12 @@ const Search = () => {
 
       {/* Search Results */}
       <div className="bg-white rounded-lg p-6 shadow-card mb-6">
-        <div className="flex items-center justify-between">
+<div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">
-            Search Results
+            {t('search.searchResults')}
           </h2>
-          <span className="text-gray-600">
-            {filteredProperties.length} of {properties.length} properties
+<span className="text-gray-600">
+            {filteredProperties.length} {t('properties.of')} {properties.length} {t('properties.propertiesText')}
           </span>
         </div>
       </div>
@@ -219,10 +221,10 @@ const Search = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <Empty
-            title="No properties match your search"
-            description="Try adjusting your search criteria or filters to find more results"
-            actionText="Reset Search"
+<Empty
+            title={t('search.empty.title')}
+            description={t('search.empty.description')}
+            actionText={t('search.empty.resetSearch')}
             onAction={handleResetFilters}
             icon="Search"
           />

@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import PropertyCard from '@/components/molecules/PropertyCard'
-import FilterPanel from '@/components/molecules/FilterPanel'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-import Empty from '@/components/ui/Empty'
-import Button from '@/components/atoms/Button'
-import ApperIcon from '@/components/ApperIcon'
-import { propertyService } from '@/services/api/propertyService'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import FilterPanel from "@/components/molecules/FilterPanel";
+import PropertyCard from "@/components/molecules/PropertyCard";
+import Error from "@/components/ui/Error";
+import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import { propertyService } from "@/services/api/propertyService";
 
 const Properties = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [properties, setProperties] = useState([])
   const [filteredProperties, setFilteredProperties] = useState([])
@@ -77,12 +79,12 @@ const loadProperties = async () => {
     <div className="p-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-        <div>
+<div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Properties
+            {t('properties.title')}
           </h1>
           <p className="text-gray-600">
-            Manage and view all your property listings
+            {t('properties.subtitle')}
           </p>
         </div>
         <div className="mt-4 md:mt-0 flex items-center space-x-3">
@@ -104,13 +106,13 @@ const loadProperties = async () => {
               <ApperIcon name="List" size={16} />
             </Button>
           </div>
-          <Button
+<Button
             variant="primary"
             onClick={() => navigate('/add-property')}
             className="inline-flex items-center"
           >
             <ApperIcon name="Plus" size={16} className="mr-2" />
-            Add Property
+            {t('header.addProperty')}
           </Button>
         </div>
       </div>
@@ -119,18 +121,18 @@ const loadProperties = async () => {
       <FilterPanel onFilter={handleFilter} onReset={handleResetFilters} />
 
       {/* Results Count */}
-      <div className="flex items-center justify-between mb-6">
+<div className="flex items-center justify-between mb-6">
         <p className="text-gray-600">
-          Showing {filteredProperties.length} of {properties.length} properties
+          {t('properties.showing')} {filteredProperties.length} {t('properties.of')} {properties.length} {t('properties.propertiesText')}
         </p>
       </div>
 
       {/* Properties Grid/List */}
       {filteredProperties.length === 0 ? (
-        <Empty
-          title="No properties found"
-          description="Try adjusting your filters or add a new property to get started"
-          actionText="Add Property"
+<Empty
+          title={t('properties.empty.title')}
+          description={t('properties.empty.description')}
+          actionText={t('header.addProperty')}
           onAction={() => navigate('/add-property')}
           icon="Home"
         />

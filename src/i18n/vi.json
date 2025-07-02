@@ -1,0 +1,180 @@
+{
+  "header": {
+    "addProperty": "Thêm Bất Động Sản"
+  },
+  "navigation": {
+    "dashboard": "Bảng Điều Khiển",
+    "properties": "Bất Động Sản",
+    "addProperty": "Thêm Bất Động Sản",
+    "clients": "Khách Hàng",
+    "search": "Tìm Kiếm"
+  },
+  "dashboard": {
+    "title": "Bảng Điều Khiển",
+    "subtitle": "Chào mừng quay trở lại! Đây là những gì đang diễn ra với bất động sản của bạn.",
+    "quickActions": "Thao Tác Nhanh",
+    "recentProperties": "Bất Động Sản Gần Đây",
+    "recentActivity": "Hoạt Động Gần Đây",
+    "stats": {
+      "totalListings": "Tổng Số Tin Đăng",
+      "activeListings": "Tin Đăng Đang Hoạt Động",
+      "totalClients": "Tổng Số Khách Hàng",
+      "monthlyRevenue": "Doanh Thu Hàng Tháng"
+    },
+    "actions": {
+      "addProperty": "Thêm Bất Động Sản",
+      "addClient": "Thêm Khách Hàng",
+      "propertySearch": "Tìm Kiếm Bất Động Sản",
+      "viewReports": "Xem Báo Cáo"
+    },
+    "activity": {
+      "newPropertyListed": "Bất động sản mới được đăng",
+      "newPropertyDescription": "Căn hộ hiện đại trung tâm thành phố đã được thêm vào danh sách",
+      "newClientInquiry": "Khách hàng mới quan tâm",
+      "newClientDescription": "Sarah Johnson quan tâm đến căn hộ cao cấp",
+      "propertySold": "Bất động sản đã bán",
+      "propertySoldDescription": "Ngôi nhà gia đình ngoại ô đã hoàn tất giao dịch thành công",
+      "showingScheduled": "Đã lên lịch xem nhà",
+      "showingDescription": "Lịch xem bất động sản được đặt vào ngày mai lúc 2 giờ chiều"
+    },
+    "empty": {
+      "noProperties": "Chưa có bất động sản nào",
+      "noPropertiesDescription": "Bắt đầu xây dựng danh mục của bạn bằng cách thêm tin đăng bất động sản đầu tiên"
+    }
+  },
+  "properties": {
+    "title": "Bất Động Sản",
+    "subtitle": "Quản lý và xem tất cả các tin đăng bất động sản của bạn",
+    "showing": "Hiển thị",
+    "of": "trong tổng số",
+    "propertiesText": "bất động sản",
+    "empty": {
+      "title": "Không tìm thấy bất động sản nào",
+      "description": "Thử điều chỉnh bộ lọc của bạn hoặc thêm một bất động sản mới để bắt đầu"
+    }
+  },
+  "addProperty": {
+    "title": "Thêm Bất Động Sản Mới",
+    "subtitle": "Tạo một tin đăng bất động sản mới cho danh mục của bạn",
+    "backToProperties": "Quay Lại Bất Động Sản",
+    "basicInformation": "Thông Tin Cơ Bản",
+    "propertyDetails": "Chi Tiết Bất Động Sản",
+    "description": "Mô Tả",
+    "listingStatus": "Trạng Thái Tin Đăng",
+    "cancel": "Hủy",
+    "addingProperty": "Đang Thêm Bất Động Sản...",
+    "labels": {
+      "propertyTitle": "Tiêu Đề Bất Động Sản",
+      "propertyType": "Loại Bất Động Sản",
+      "price": "Giá ($)",
+      "location": "Vị Trí",
+      "area": "Diện Tích (sqft)",
+      "bedrooms": "Phòng Ngủ",
+      "bathrooms": "Phòng Tắm",
+      "status": "Trạng Thái"
+    },
+    "placeholders": {
+      "title": "vd: Căn hộ hiện đại trung tâm thành phố",
+      "selectType": "Chọn loại bất động sản",
+      "price": "450000",
+      "location": "Thành phố, Tỉnh",
+      "area": "2500",
+      "bedrooms": "3",
+      "bathrooms": "2.5",
+      "description": "Mô tả các tính năng, tiện ích và điểm bán hàng độc đáo của bất động sản..."
+    },
+    "types": {
+      "house": "Nhà Ở",
+      "apartment": "Căn Hộ",
+      "condo": "Chung Cư",
+      "townhouse": "Nhà Phố",
+      "commercial": "Thương Mại"
+    },
+    "statuses": {
+      "available": "Có Sẵn",
+      "pending": "Đang Chờ",
+      "sold": "Đã Bán"
+    }
+  },
+  "search": {
+    "title": "Tìm Kiếm Bất Động Sản Nâng Cao",
+    "subtitle": "Tìm bất động sản hoàn hảo bằng các công cụ tìm kiếm toàn diện của chúng tôi",
+    "searchResults": "Kết Quả Tìm Kiếm",
+    "sortBy": "Sắp Xếp Theo",
+    "search": "Tìm Kiếm",
+    "empty": {
+      "title": "Không có bất động sản nào phù hợp với tìm kiếm của bạn",
+      "description": "Thử điều chỉnh tiêu chí tìm kiếm hoặc bộ lọc của bạn để tìm thêm kết quả",
+      "resetSearch": "Đặt Lại Tìm Kiếm"
+    },
+    "sorting": {
+      "newest": "Mới Nhất Trước",
+      "oldest": "Cũ Nhất Trước",
+      "priceLowHigh": "Giá: Thấp đến Cao",
+      "priceHighLow": "Giá: Cao đến Thấp",
+      "areaLargeSmall": "Diện Tích: Lớn đến Nhỏ",
+      "areaSmallLarge": "Diện Tích: Nhỏ đến Lớn"
+    },
+    "placeholders": {
+      "searchProperties": "Tìm Kiếm Bất Động Sản",
+      "searchDescription": "Tìm kiếm theo tiêu đề, vị trí hoặc mô tả..."
+    }
+  },
+  "clients": {
+    "title": "Khách Hàng",
+    "subtitle": "Quản lý các mối quan hệ và tương tác với khách hàng",
+    "addClient": "Thêm Khách Hàng",
+    "searchPlaceholder": "Tìm kiếm khách hàng theo tên, email hoặc số điện thoại...",
+    "of": "trong tổng số",
+    "clientsText": "khách hàng",
+    "table": {
+      "client": "Khách Hàng",
+      "contact": "Liên Hệ",
+      "status": "Trạng Thái",
+      "interestedProperties": "Bất Động Sản Quan Tâm",
+      "added": "Đã Thêm",
+      "actions": "Thao Tác"
+    },
+    "properties": "bất động sản",
+    "empty": {
+      "title": "Không tìm thấy khách hàng nào",
+      "description": "Bắt đầu xây dựng cơ sở khách hàng của bạn bằng cách thêm khách hàng đầu tiên"
+    }
+  },
+  "propertyDetail": {
+    "backToProperties": "Quay Lại Bất Động Sản",
+    "edit": "Chỉnh Sửa",
+    "share": "Chia Sẻ",
+    "description": "Mô Tả",
+    "propertyFeatures": "Tính Năng Bất Động Sản",
+    "contactClient": "Liên Hệ Khách Hàng",
+    "scheduleShowing": "Lên Lịch Xem Nhà",
+    "updateStatus": "Cập Nhật Trạng Thái",
+    "features": {
+      "listed": "Đã Đăng",
+      "marketReady": "Sẵn Sàng Thị Trường",
+      "verifiedListing": "Tin Đăng Đã Xác Minh"
+    },
+    "units": {
+      "sqft": "sqft",
+      "bedrooms": "phòng ngủ",
+      "bathrooms": "phòng tắm"
+    }
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "retry": "Thử lại",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "view": "Xem",
+    "add": "Thêm",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "reset": "Đặt lại",
+    "close": "Đóng",
+    "viewAll": "Xem Tất Cả"
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 import ApperIcon from "@/components/ApperIcon";
 import Badge from "@/components/atoms/Badge";
 import Button from "@/components/atoms/Button";
@@ -13,6 +14,7 @@ import propertiesData from "@/services/mockData/properties.json";
 import { propertyService } from "@/services/api/propertyService";
 
 const PropertyDetail = () => {
+  const { t } = useTranslation()
   const { id } = useParams()
   const navigate = useNavigate()
   const [property, setProperty] = useState(null)
@@ -76,27 +78,25 @@ const PropertyDetail = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <Button
+<Button
           variant="ghost"
           onClick={() => navigate('/properties')}
           className="inline-flex items-center"
         >
           <ApperIcon name="ArrowLeft" size={16} className="mr-2" />
-          Back to Properties
+          {t('propertyDetail.backToProperties')}
         </Button>
-        
         <div className="flex items-center space-x-3">
           <Badge variant={getStatusVariant(property.status)}>
             {property.status}
           </Badge>
-          <Button variant="secondary" size="sm">
+<Button variant="secondary" size="sm">
             <ApperIcon name="Edit" size={16} className="mr-1" />
-            Edit
+            {t('propertyDetail.edit')}
           </Button>
-          <Button variant="primary" size="sm">
+<Button variant="primary" size="sm">
             <ApperIcon name="Share" size={16} className="mr-1" />
-            Share
+            {t('propertyDetail.share')}
           </Button>
         </div>
       </div>
@@ -197,24 +197,24 @@ const PropertyDetail = () => {
 
             <div className="flex items-center space-x-6 text-gray-600">
               <div className="flex items-center">
-                <ApperIcon name="Home" size={20} className="mr-2" />
-                <span>{property.area} sqft</span>
+<ApperIcon name="Home" size={20} className="mr-2" />
+                <span>{property.area} {t('propertyDetail.units.sqft')}</span>
               </div>
-              <div className="flex items-center">
+<div className="flex items-center">
                 <ApperIcon name="Bed" size={20} className="mr-2" />
-                <span>{property.bedrooms} bedrooms</span>
+                <span>{property.bedrooms} {t('propertyDetail.units.bedrooms')}</span>
               </div>
-              <div className="flex items-center">
+<div className="flex items-center">
                 <ApperIcon name="Bath" size={20} className="mr-2" />
-                <span>{property.bathrooms} bathrooms</span>
+                <span>{property.bathrooms} {t('propertyDetail.units.bathrooms')}</span>
               </div>
             </div>
           </div>
 
           {/* Description */}
-          <div className="bg-gray-50 rounded-lg p-6">
+<div className="bg-gray-50 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">
-              Description
+              {t('propertyDetail.description')}
             </h3>
             <p className="text-gray-700 leading-relaxed">
               {property.description}
@@ -222,9 +222,9 @@ const PropertyDetail = () => {
           </div>
 
           {/* Property Features */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
+<div className="bg-white border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Property Features
+              {t('propertyDetail.propertyFeatures')}
             </h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center">
@@ -232,16 +232,16 @@ const PropertyDetail = () => {
                 <span className="text-sm text-gray-700">{property.type}</span>
               </div>
               <div className="flex items-center">
-                <ApperIcon name="Calendar" size={16} className="mr-2 text-gray-500" />
-                <span className="text-sm text-gray-700">Listed {new Date(property.createdAt).toLocaleDateString()}</span>
+<ApperIcon name="Calendar" size={16} className="mr-2 text-gray-500" />
+                <span className="text-sm text-gray-700">{t('propertyDetail.features.listed')} {new Date(property.createdAt).toLocaleDateString()}</span>
               </div>
               <div className="flex items-center">
-                <ApperIcon name="TrendingUp" size={16} className="mr-2 text-gray-500" />
-                <span className="text-sm text-gray-700">Market Ready</span>
+<ApperIcon name="TrendingUp" size={16} className="mr-2 text-gray-500" />
+                <span className="text-sm text-gray-700">{t('propertyDetail.features.marketReady')}</span>
               </div>
               <div className="flex items-center">
-                <ApperIcon name="Shield" size={16} className="mr-2 text-gray-500" />
-                <span className="text-sm text-gray-700">Verified Listing</span>
+<ApperIcon name="Shield" size={16} className="mr-2 text-gray-500" />
+                <span className="text-sm text-gray-700">{t('propertyDetail.features.verifiedListing')}</span>
               </div>
             </div>
           </div>
@@ -252,22 +252,22 @@ const PropertyDetail = () => {
               <Button
                 variant="primary"
                 className="flex-1 inline-flex items-center justify-center"
-              >
+>
                 <ApperIcon name="Phone" size={16} className="mr-2" />
-                Contact Client
+                {t('propertyDetail.contactClient')}
               </Button>
               <Button
                 variant="secondary"
                 className="flex-1 inline-flex items-center justify-center"
-              >
+>
                 <ApperIcon name="Calendar" size={16} className="mr-2" />
-                Schedule Showing
+                {t('propertyDetail.scheduleShowing')}
               </Button>
             </div>
 
             {/* Status Update */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-900 mb-3">Update Status</h4>
+<div className="bg-gray-50 rounded-lg p-4">
+              <h4 className="font-medium text-gray-900 mb-3">{t('propertyDetail.updateStatus')}</h4>
               <div className="flex space-x-2">
                 {['Available', 'Pending', 'Sold'].map((status) => (
                   <Button
