@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import ApperIcon from '@/components/ApperIcon'
-import Badge from '@/components/atoms/Badge'
-import Button from '@/components/atoms/Button'
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import React from "react";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate()
@@ -24,7 +25,7 @@ const PropertyCard = ({ property }) => {
     }
   }
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -32,14 +33,21 @@ const PropertyCard = ({ property }) => {
       className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden cursor-pointer"
       onClick={() => navigate(`/properties/${property.Id}`)}
     >
-      <div className="relative">
+      <div className="relative overflow-hidden">
+        {/* Image with hover effect */}
         <img
-          src={property.images[0] || '/api/placeholder/400/250'}
-          alt={property.title}
+          src={property.images?.[0] || 'https://picsum.photos/400/250?random=1'}
+          alt={property.title || 'Property image'}
           className="w-full h-48 object-cover"
+          onError={(e) => {
+            e.target.src = 'https://picsum.photos/400/250?random=1';
+            console.warn('Failed to load property image:', property.images?.[0]);
+          }}
         />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+        
         <div className="absolute top-3 right-3">
-          <Badge variant={getStatusVariant(property.status)} size="sm">
+          <Badge variant={getStatusVariant(property.status)}>
             {property.status}
           </Badge>
         </div>
