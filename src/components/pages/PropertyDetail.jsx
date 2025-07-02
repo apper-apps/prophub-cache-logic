@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { toast } from 'react-toastify'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-import Button from '@/components/atoms/Button'
-import Badge from '@/components/atoms/Badge'
-import ApperIcon from '@/components/ApperIcon'
-import { propertyService } from '@/services/api/propertyService'
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Properties from "@/components/pages/Properties";
+import clientsData from "@/services/mockData/clients.json";
+import propertiesData from "@/services/mockData/properties.json";
+import { propertyService } from "@/services/api/propertyService";
 
 const PropertyDetail = () => {
   const { id } = useParams()
@@ -100,52 +103,71 @@ const PropertyDetail = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Image Gallery */}
-        <div className="space-y-4">
+<div className="space-y-4">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="relative aspect-video rounded-lg overflow-hidden bg-gray-200"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="relative bg-gray-100 rounded-lg overflow-hidden"
           >
-            <img
-              src={property.images[currentImageIndex] || '/api/placeholder/800/600'}
-              alt={property.title}
-              className="w-full h-full object-cover"
-            />
-            
-            {property.images.length > 1 && (
-              <>
-                <button
-                  onClick={() => setCurrentImageIndex(Math.max(0, currentImageIndex - 1))}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
-                  disabled={currentImageIndex === 0}
-                >
-                  <ApperIcon name="ChevronLeft" size={20} />
-                </button>
-                <button
-                  onClick={() => setCurrentImageIndex(Math.min(property.images.length - 1, currentImageIndex + 1))}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
-                  disabled={currentImageIndex === property.images.length - 1}
-                >
-                  <ApperIcon name="ChevronRight" size={20} />
-                </button>
-              </>
-            )}
+            <div className="relative w-full h-96 cursor-pointer">
+              <img
+                src={property.images?.[currentImageIndex] || '/api/placeholder/800/600'}
+                alt={property.title || 'Property image'}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/api/placeholder/800/600';
+                  console.warn('Failed to load property image:', property.images?.[currentImageIndex]);
+                }}
+                onLoad={(e) => {
+                  e.target.style.opacity = '1';
+                }}
+                style={{ opacity: '0', transition: 'opacity 0.3s' }}
+              />
+              
+              {property.images && property.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setCurrentImageIndex(Math.max(0, currentImageIndex - 1))}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
+                    disabled={currentImageIndex === 0}
+                  >
+                    <ApperIcon name="ChevronLeft" size={20} />
+                  </button>
+                  <button
+                    onClick={() => setCurrentImageIndex(Math.min(property.images.length - 1, currentImageIndex + 1))}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
+                    disabled={currentImageIndex === property.images.length - 1}
+                  >
+                    <ApperIcon name="ChevronRight" size={20} />
+                  </button>
+                </>
+              )}
+            </div>
           </motion.div>
           
-          {property.images.length > 1 && (
-            <div className="flex space-x-2 overflow-x-auto">
+          {property.images && property.images.length > 1 && (
+            <div className="flex space-x-2 overflow-x-auto pb-2">
               {property.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentImageIndex ? 'border-primary-500' : 'border-gray-200'
+                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 ${
+                    currentImageIndex === index ? 'border-blue-500' : 'border-gray-200'
                   }`}
                 >
                   <img
                     src={image || '/api/placeholder/80/80'}
-                    alt={`${property.title} ${index + 1}`}
+                    alt={`${property.title || 'Property'} ${index + 1}`}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = '/api/placeholder/80/80';
+                      console.warn('Failed to load thumbnail:', image);
+                    }}
+                    onLoad={(e) => {
+                      e.target.style.opacity = '1';
+                    }}
+                    style={{ opacity: '0', transition: 'opacity 0.2s' }}
                   />
                 </button>
               ))}

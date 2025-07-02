@@ -9,18 +9,39 @@ class PropertyService {
     return new Promise(resolve => setTimeout(resolve, Math.random() * 300 + 200))
   }
 
-  async getAll() {
+async getAll() {
     await this.delay()
-    return [...this.properties]
+    // Validate and sanitize image data to prevent canvas errors
+    return this.properties.map(property => ({
+      ...property,
+      images: this.validateImages(property.images || [])
+    }))
   }
 
-  async getById(id) {
+async getById(id) {
     await this.delay()
     const property = this.properties.find(p => p.Id === id)
     if (!property) {
       throw new Error('Property not found')
     }
-    return { ...property }
+    return { 
+      ...property,
+      images: this.validateImages(property.images || [])
+    }
+  }
+
+  validateImages(images) {
+    if (!Array.isArray(images)) return []
+    return images.filter(img => {
+      if (!img || typeof img !== 'string') return false
+      // Basic URL validation to prevent invalid sources
+      try {
+        new URL(img.startsWith('/') ? `https://example.com${img}` : img)
+        return true
+      } catch {
+        return false
+      }
+    })
   }
 
   async create(propertyData) {

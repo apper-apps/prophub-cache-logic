@@ -21,15 +21,21 @@ const Properties = () => {
     loadProperties()
   }, [])
 
-  const loadProperties = async () => {
+const loadProperties = async () => {
     try {
       setLoading(true)
       setError('')
       const data = await propertyService.getAll()
-      setProperties(data)
-      setFilteredProperties(data)
+      // Validate properties have proper image arrays to prevent canvas errors
+      const validatedData = data.map(property => ({
+        ...property,
+        images: Array.isArray(property.images) ? property.images.filter(img => img && typeof img === 'string') : []
+      }))
+      setProperties(validatedData)
+      setFilteredProperties(validatedData)
     } catch (err) {
-      setError('Failed to load properties')
+      console.error('Properties loading error:', err)
+      setError('Failed to load properties. Please try again.')
     } finally {
       setLoading(false)
     }
