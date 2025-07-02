@@ -1,0 +1,156 @@
+[
+  {
+    "Id": 1,
+    "title": "Modern Downtown Apartment",
+    "type": "Apartment",
+    "status": "Available",
+    "price": 450000,
+    "location": "Downtown Seattle, WA",
+    "area": 1200,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "description": "Stunning modern apartment in the heart of downtown Seattle featuring floor-to-ceiling windows, premium finishes, and panoramic city views. This contemporary unit boasts an open-concept living space with high-end appliances, granite countertops, and hardwood flooring throughout. Building amenities include a rooftop deck, fitness center, and concierge service. Perfect for urban professionals seeking luxury living in a prime location.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "title": "Suburban Family Home",
+    "type": "House",
+    "status": "Sold",
+    "price": 650000,
+    "location": "Bellevue, WA",
+    "area": 2500,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "description": "Beautiful family home in desirable Bellevue neighborhood offering spacious living with modern updates. Features include a gourmet kitchen with granite counters and stainless steel appliances, master suite with walk-in closet, finished basement, and large backyard perfect for entertaining. Located in top-rated school district with easy access to tech companies and shopping centers.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-10T14:20:00Z",
+    "updatedAt": "2024-01-20T16:45:00Z"
+  },
+  {
+    "Id": 3,
+    "title": "Luxury Waterfront Condo",
+    "type": "Condo",
+    "status": "Pending",
+    "price": 850000,
+    "location": "Capitol Hill, Seattle, WA",
+    "area": 1800,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "description": "Exceptional waterfront condominium with breathtaking Elliott Bay views and premium luxury finishes throughout. This sophisticated residence features an open floor plan, chef's kitchen with top-of-the-line appliances, marble countertops, and expansive windows showcasing stunning water and mountain views. Building offers resort-style amenities including infinity pool, spa, and private marina access.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-12T09:15:00Z",
+    "updatedAt": "2024-01-18T11:30:00Z"
+  },
+  {
+    "Id": 4,
+    "title": "Cozy Townhouse",
+    "type": "Townhouse",
+    "status": "Available",
+    "price": 385000,
+    "location": "Redmond, WA",
+    "area": 1400,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "description": "Charming townhouse in quiet Redmond community perfect for first-time buyers or young families. Recently updated with fresh paint, new flooring, and modern fixtures throughout. Features include an open-concept main level, private patio, attached garage, and convenient location near parks, schools, and public transportation. Move-in ready with low maintenance living.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-08T16:45:00Z",
+    "updatedAt": "2024-01-08T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "title": "Historic Victorian Home",
+    "type": "House",
+    "status": "Available",
+    "price": 725000,
+    "location": "Queen Anne, Seattle, WA",
+    "area": 2200,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "description": "Meticulously restored Victorian home in prestigious Queen Anne neighborhood combining historic charm with modern conveniences. Original architectural details include ornate crown molding, hardwood floors, and stained glass windows. Updated kitchen and bathrooms, new electrical and plumbing systems. Beautiful gardens and mature landscaping create a private urban oasis.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-05T13:20:00Z",
+    "updatedAt": "2024-01-14T10:15:00Z"
+  },
+  {
+    "Id": 6,
+    "title": "Modern Loft Studio",
+    "type": "Apartment",
+    "status": "Available",
+    "price": 320000,
+    "location": "Fremont, Seattle, WA",
+    "area": 850,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "description": "Contemporary loft-style studio in trendy Fremont district featuring soaring ceilings, exposed brick walls, and industrial-chic design elements. Open floor plan maximizes space with modern kitchen, spa-like bathroom, and large windows providing abundant natural light. Walking distance to eclectic shops, restaurants, and weekend farmers market.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-18T08:30:00Z",
+    "updatedAt": "2024-01-18T08:30:00Z"
+  },
+  {
+    "Id": 7,
+    "title": "Executive Estate",
+    "type": "House",
+    "status": "Available",
+    "price": 1250000,
+    "location": "Mercer Island, WA",
+    "area": 4200,
+    "bedrooms": 5,
+    "bathrooms": 4.5,
+    "description": "Magnificent executive estate on prestigious Mercer Island offering unparalleled luxury and privacy. Grand foyer leads to formal living and dining rooms, gourmet kitchen with butler's pantry, and family room with fireplace. Master suite features sitting area, spa bath, and private balcony. Beautifully landscaped grounds with swimming pool, tennis court, and three-car garage.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-03T12:00:00Z",
+    "updatedAt": "2024-01-10T14:20:00Z"
+  },
+  {
+    "Id": 8,
+    "title": "Urban Penthouse",
+    "type": "Condo",
+    "status": "Pending",
+    "price": 950000,
+    "location": "Belltown, Seattle, WA",
+    "area": 2000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "description": "Spectacular penthouse offering 360-degree views of Seattle skyline, Puget Sound, and Olympic Mountains. Floor-to-ceiling windows, premium finishes, and private rooftop terrace create an unmatched urban living experience. Gourmet kitchen with waterfall island, master suite with city views, and building amenities including doorman, fitness center, and resident lounge.",
+    "images": [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600"
+    ],
+    "createdAt": "2024-01-16T15:45:00Z",
+    "updatedAt": "2024-01-19T09:30:00Z"
+  }
+]
