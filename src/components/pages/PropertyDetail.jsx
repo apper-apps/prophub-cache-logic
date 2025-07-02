@@ -75,10 +75,11 @@ const PropertyDetail = () => {
   if (error) return <Error message={error} onRetry={() => navigate('/properties')} />
   if (!property) return <Error message="Property not found" />
 
-  return (
+return (
     <div className="max-w-7xl mx-auto p-6">
       {/* Header */}
-<Button
+      <div className="flex items-center justify-between mb-6">
+        <Button
           variant="ghost"
           onClick={() => navigate('/properties')}
           className="inline-flex items-center"
@@ -90,18 +91,17 @@ const PropertyDetail = () => {
           <Badge variant={getStatusVariant(property.status)}>
             {property.status}
           </Badge>
-<Button variant="secondary" size="sm">
+          <Button variant="secondary" size="sm">
             <ApperIcon name="Edit" size={16} className="mr-1" />
             {t('propertyDetail.edit')}
           </Button>
-<Button variant="primary" size="sm">
+          <Button variant="primary" size="sm">
             <ApperIcon name="Share" size={16} className="mr-1" />
             {t('propertyDetail.share')}
           </Button>
         </div>
       </div>
-
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Image Gallery */}
         <div className="space-y-4">
           <motion.div
@@ -195,16 +195,16 @@ const PropertyDetail = () => {
               <span className="text-lg">{property.location}</span>
             </div>
 
-            <div className="flex items-center space-x-6 text-gray-600">
+<div className="flex items-center space-x-6 text-gray-600">
               <div className="flex items-center">
-<ApperIcon name="Home" size={20} className="mr-2" />
+                <ApperIcon name="Home" size={20} className="mr-2" />
                 <span>{property.area} {t('propertyDetail.units.sqft')}</span>
               </div>
-<div className="flex items-center">
+              <div className="flex items-center">
                 <ApperIcon name="Bed" size={20} className="mr-2" />
                 <span>{property.bedrooms} {t('propertyDetail.units.bedrooms')}</span>
               </div>
-<div className="flex items-center">
+              <div className="flex items-center">
                 <ApperIcon name="Bath" size={20} className="mr-2" />
                 <span>{property.bathrooms} {t('propertyDetail.units.bathrooms')}</span>
               </div>
@@ -221,8 +221,8 @@ const PropertyDetail = () => {
             </p>
           </div>
 
-          {/* Property Features */}
-<div className="bg-white border border-gray-200 rounded-lg p-6">
+{/* Property Features */}
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
               {t('propertyDetail.propertyFeatures')}
             </h3>
@@ -232,15 +232,15 @@ const PropertyDetail = () => {
                 <span className="text-sm text-gray-700">{property.type}</span>
               </div>
               <div className="flex items-center">
-<ApperIcon name="Calendar" size={16} className="mr-2 text-gray-500" />
+                <ApperIcon name="Calendar" size={16} className="mr-2 text-gray-500" />
                 <span className="text-sm text-gray-700">{t('propertyDetail.features.listed')} {new Date(property.createdAt).toLocaleDateString()}</span>
               </div>
               <div className="flex items-center">
-<ApperIcon name="TrendingUp" size={16} className="mr-2 text-gray-500" />
+                <ApperIcon name="TrendingUp" size={16} className="mr-2 text-gray-500" />
                 <span className="text-sm text-gray-700">{t('propertyDetail.features.marketReady')}</span>
               </div>
               <div className="flex items-center">
-<ApperIcon name="Shield" size={16} className="mr-2 text-gray-500" />
+                <ApperIcon name="Shield" size={16} className="mr-2 text-gray-500" />
                 <span className="text-sm text-gray-700">{t('propertyDetail.features.verifiedListing')}</span>
               </div>
             </div>
@@ -265,8 +265,8 @@ const PropertyDetail = () => {
               </Button>
             </div>
 
-            {/* Status Update */}
-<div className="bg-gray-50 rounded-lg p-4">
+{/* Status Update */}
+            <div className="bg-gray-50 rounded-lg p-4">
               <h4 className="font-medium text-gray-900 mb-3">{t('propertyDetail.updateStatus')}</h4>
               <div className="flex space-x-2">
                 {['Available', 'Pending', 'Sold'].map((status) => (
