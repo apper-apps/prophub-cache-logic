@@ -195,7 +195,7 @@ return (
               <span className="text-lg">{property.location}</span>
             </div>
 
-<div className="flex items-center space-x-6 text-gray-600">
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-600">
               <div className="flex items-center">
                 <ApperIcon name="Home" size={20} className="mr-2" />
                 <span>{property.area} {t('propertyDetail.units.sqft')}</span>
@@ -208,6 +208,24 @@ return (
                 <ApperIcon name="Bath" size={20} className="mr-2" />
                 <span>{property.bathrooms} {t('propertyDetail.units.bathrooms')}</span>
               </div>
+              {property.building && (
+                <div className="flex items-center">
+                  <ApperIcon name="Building" size={20} className="mr-2" />
+                  <span>{property.building}</span>
+                </div>
+              )}
+              {property.floor && (
+                <div className="flex items-center">
+                  <ApperIcon name="Layers" size={20} className="mr-2" />
+                  <span>Floor {property.floor}</span>
+                </div>
+              )}
+              {property.apartmentNumber && (
+                <div className="flex items-center">
+                  <ApperIcon name="Hash" size={20} className="mr-2" />
+                  <span>Unit {property.apartmentNumber}</span>
+                </div>
+              )}
             </div>
           </div>
 

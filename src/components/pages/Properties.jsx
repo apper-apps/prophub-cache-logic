@@ -43,7 +43,7 @@ const loadProperties = async () => {
     }
   }
 
-  const handleFilter = (filters) => {
+const handleFilter = (filters) => {
     let filtered = [...properties]
 
     if (filters.type) {
@@ -63,6 +63,16 @@ const loadProperties = async () => {
     }
     if (filters.location) {
       filtered = filtered.filter(p => p.location.toLowerCase().includes(filters.location.toLowerCase()))
+    }
+    // Apartment-specific filters
+    if (filters.building) {
+      filtered = filtered.filter(p => p.building && p.building.toLowerCase().includes(filters.building.toLowerCase()))
+    }
+    if (filters.floor) {
+      filtered = filtered.filter(p => p.floor && p.floor === parseInt(filters.floor))
+    }
+    if (filters.apartmentNumber) {
+      filtered = filtered.filter(p => p.apartmentNumber && p.apartmentNumber.toLowerCase().includes(filters.apartmentNumber.toLowerCase()))
     }
 
     setFilteredProperties(filtered)
@@ -123,7 +133,7 @@ const loadProperties = async () => {
       {/* Results Count */}
 <div className="flex items-center justify-between mb-6">
         <p className="text-gray-600">
-          {t('properties.showing')} {filteredProperties.length} {t('properties.of')} {properties.length} {t('properties.propertiesText')}
+          {t('properties.showing')} {filteredProperties.length} {t('properties.of')} {properties.length} apartments across 4 buildings
         </p>
       </div>
 

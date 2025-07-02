@@ -12,10 +12,20 @@ class PropertyService {
 async getAll() {
     await this.delay()
     // Validate and sanitize image data to prevent canvas errors
-    return this.properties.map(property => ({
+    const validatedProperties = this.properties.map(property => ({
       ...property,
       images: this.validateImages(property.images || [])
     }))
+    
+    // Sort apartments by building, then floor, then apartment number for better organization
+    return validatedProperties.sort((a, b) => {
+      if (a.building && b.building) {
+        if (a.building !== b.building) return a.building.localeCompare(b.building)
+        if (a.floor !== b.floor) return a.floor - b.floor
+        if (a.apartmentNumber && b.apartmentNumber) return a.apartmentNumber.localeCompare(b.apartmentNumber)
+      }
+      return a.Id - b.Id
+    })
   }
 
 async getById(id) {

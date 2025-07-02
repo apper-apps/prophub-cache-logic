@@ -13,7 +13,7 @@ const AddProperty = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: '',
     type: '',
     price: '',
@@ -21,6 +21,9 @@ const AddProperty = () => {
     area: '',
     bedrooms: '',
     bathrooms: '',
+    building: '',
+    floor: '',
+    apartmentNumber: '',
     description: '',
     status: 'Available'
   })
@@ -34,7 +37,7 @@ const AddProperty = () => {
     }
   }
 
-  const validateForm = () => {
+const validateForm = () => {
     const newErrors = {}
 
     if (!formData.title.trim()) newErrors.title = 'Title is required'
@@ -44,6 +47,9 @@ const AddProperty = () => {
     if (!formData.area || parseFloat(formData.area) <= 0) newErrors.area = 'Valid area is required'
     if (!formData.bedrooms || parseInt(formData.bedrooms) < 0) newErrors.bedrooms = 'Valid bedroom count is required'
     if (!formData.bathrooms || parseFloat(formData.bathrooms) < 0) newErrors.bathrooms = 'Valid bathroom count is required'
+    if (!formData.building.trim()) newErrors.building = 'Building is required'
+    if (!formData.floor || parseInt(formData.floor) < 4 || parseInt(formData.floor) > 19) newErrors.floor = 'Floor must be between 4 and 19'
+    if (!formData.apartmentNumber.trim()) newErrors.apartmentNumber = 'Apartment number is required'
     if (!formData.description.trim()) newErrors.description = 'Description is required'
 
     setErrors(newErrors)
@@ -55,7 +61,7 @@ const AddProperty = () => {
     
     if (!validateForm()) return
 
-    try {
+try {
       setLoading(true)
       const propertyData = {
         ...formData,
@@ -63,6 +69,8 @@ const AddProperty = () => {
         area: parseFloat(formData.area),
         bedrooms: parseInt(formData.bedrooms),
         bathrooms: parseFloat(formData.bathrooms),
+        floor: parseInt(formData.floor),
+        location: `${formData.building} Building, Floor ${formData.floor}, Unit ${formData.apartmentNumber}`,
         images: [
           '/api/placeholder/800/600',
           '/api/placeholder/800/600',
@@ -125,17 +133,15 @@ const AddProperty = () => {
                         onChange={e => handleChange("title", e.target.value)}
                         error={errors.title}
                         placeholder={t("addProperty.placeholders.title")} />
-                    <Select
+<Select
                         label={t("addProperty.labels.propertyType")}
                         value={formData.type}
                         onChange={e => handleChange("type", e.target.value)}
                         error={errors.type}>
                         <option value="">{t("addProperty.placeholders.selectType")}</option>
-                        <option value="House">{t("addProperty.types.house")}</option>
-                        <option value="Apartment">{t("addProperty.types.apartment")}</option>
-                        <option value="Condo">{t("addProperty.types.condo")}</option>
-                        <option value="Townhouse">{t("addProperty.types.townhouse")}</option>
-                        <option value="Commercial">{t("addProperty.types.commercial")}</option>
+                        <option value="1-bedroom Apartment">1-bedroom Apartment</option>
+                        <option value="2-bedroom Apartment">2-bedroom Apartment</option>
+                        <option value="3-bedroom Apartment">3-bedroom Apartment</option>
                     </Select>
                     <Input
                         label={t("addProperty.labels.price")}
@@ -144,12 +150,34 @@ const AddProperty = () => {
                         onChange={e => handleChange("price", e.target.value)}
                         error={errors.price}
                         placeholder={t("addProperty.placeholders.price")} />
+<Select
+                        label="Building"
+                        value={formData.building}
+                        onChange={e => handleChange("building", e.target.value)}
+                        error={errors.building}>
+                        <option value="">Select Building</option>
+                        <option value="CT2A">CT2A</option>
+                        <option value="CT2B">CT2B</option>
+                        <option value="CT1A">CT1A</option>
+                        <option value="CT1B">CT1B</option>
+                    </Select>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Input
-                        label={t("addProperty.labels.location")}
-                        value={formData.location}
-                        onChange={e => handleChange("location", e.target.value)}
-                        error={errors.location}
-                        placeholder={t("addProperty.placeholders.location")} />
+                        label="Floor (4-19)"
+                        type="number"
+                        min="4"
+                        max="19"
+                        value={formData.floor}
+                        onChange={e => handleChange("floor", e.target.value)}
+                        error={errors.floor}
+                        placeholder="e.g., 4" />
+                    <Input
+                        label="Apartment Number"
+                        value={formData.apartmentNumber}
+                        onChange={e => handleChange("apartmentNumber", e.target.value)}
+                        error={errors.apartmentNumber}
+                        placeholder="e.g., 01" />
                 </div>
             </div>
             {/* Property Details */}
@@ -215,28 +243,28 @@ const AddProperty = () => {
                 </Select>
             </div>
             {/* Submit Buttons */}
-            <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+<div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
                 <Button
                     type="button"
                     variant="secondary"
                     onClick={() => navigate("/properties")}
-                    disabled={loading}
                     disabled={loading}>
                     {t("addProperty.cancel")}
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        disabled={loading}
-                        className="inline-flex items-center">
-                        {loading ? <>
-                            <ApperIcon name="Loader2" size={16} className="mr-2 animate-spin" />
-                            {t("addProperty.addingProperty")}
-                        </> : <>
-                            <ApperIcon name="Plus" size={16} className="mr-2" />
-                            {t("header.addProperty")}
-                        </>}
-                    </Button>
-                </Button></div>
+                </Button>
+                <Button
+                    type="submit"
+                    variant="primary"
+                    disabled={loading}
+                    className="inline-flex items-center">
+                    {loading ? <>
+                        <ApperIcon name="Loader2" size={16} className="mr-2 animate-spin" />
+                        {t("addProperty.addingProperty")}
+                    </> : <>
+                        <ApperIcon name="Plus" size={16} className="mr-2" />
+                        {t("header.addProperty")}
+                    </>}
+                </Button>
+            </div>
         </form>
     </motion.div>
 </div>
